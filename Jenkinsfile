@@ -3,16 +3,10 @@ pipeline {
         label 'android'
     }
     stages {
-        stage('Emulator') {
-            steps { 
-                echo 'Emulator Starting..'
-                sh '/Users/builder/Library/Android/sdk/emulator/emulator -avd Pixel3 &'
-            }
-        }
         stage('Build Android') {
             steps {
                 wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-                    echo 'Building..'
+                    echo 'Building Android..'
                     sh 'npm install'
                     sh 'react-native run-android --verbose'
                 }
@@ -21,8 +15,9 @@ pipeline {
         stage('Build iOS') {
             steps {
                 wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-                    echo 'Building..'
+                    echo 'Building iOS..'
                     sh 'npm install'
+                    sh 'cd ios ; pod install'
                     sh 'react-native run-ios --verbose'
                 }
             }

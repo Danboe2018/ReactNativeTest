@@ -6,7 +6,7 @@ pipeline {
         stage("Clean"){
             steps {
                 echo 'Cleaning...'
-                sh 'yarn clean'
+                sh 'yarn cache clean'
             }
         }
         stage("Project Install") {

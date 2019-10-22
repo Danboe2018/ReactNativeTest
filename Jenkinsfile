@@ -9,12 +9,21 @@ pipeline {
                 sh '/Users/builder/Library/Android/sdk/emulator/emulator -avd Pixel3 &'
             }
         }
-        stage('Build') {
+        stage('Build Android') {
             steps {
                 wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
                     echo 'Building..'
                     sh 'npm install'
                     sh 'react-native run-android --verbose'
+                }
+            }
+        }
+        stage('Build iOS') {
+            steps {
+                wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
+                    echo 'Building..'
+                    sh 'npm install'
+                    sh 'react-native run-ios --verbose'
                 }
             }
         }

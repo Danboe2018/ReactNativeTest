@@ -3,6 +3,11 @@ pipeline {
         label 'android'
     }
     stages {
+        stage("Project Install") {
+            steps {
+                sh 'yarn install'
+            }
+        }
         stage('Build Android') {
             steps {
                 wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {

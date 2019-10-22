@@ -14,7 +14,7 @@ pipeline {
                 wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
                     echo 'Building..'
                     sh 'npm install'
-                    sh 'react-native run-android'
+                    sh 'react-native run-android --verbose'
                 }
             }
         }

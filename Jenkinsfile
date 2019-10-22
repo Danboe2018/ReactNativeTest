@@ -3,6 +3,12 @@ pipeline {
         label 'android'
     }
     stages {
+        stage("Clean"){
+            steps {
+                echo 'Cleaning...'
+                sh 'yarn clean'
+            }
+        }
         stage("Project Install") {
             steps {
                 sh 'yarn install'

@@ -6,7 +6,7 @@ pipeline {
         stage('Emulator') {
             steps { 
                 echo 'Emulator Starting..'
-                sh '/Users/builder/Library/Android/sdk/emulator/emulator -avd Pixel3'
+                sh '/Users/builder/Library/Android/sdk/emulator/emulator -avd Pixel3 &'
             }
         }
         stage('Build') {

@@ -11,9 +11,11 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh 'npm install'
-                sh 'react-native run-android'
+                wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
+                    echo 'Building..'
+                    sh 'npm install'
+                    sh 'react-native run-android'
+                }
             }
         }
         stage('Test') {

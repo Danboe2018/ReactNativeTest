@@ -42,6 +42,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 archiveArtifacts '**/*.apk'
+                archiveArtifacts '**/*.ipa'
             }
         }
     }

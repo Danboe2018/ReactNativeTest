@@ -6,9 +6,9 @@ pipeline {
         stage("Clean"){
             steps {
                 echo 'Cleaning...'
-                sh 'rm -rf node_modules/.bin'
                 sh 'cd android ; ./gradlew clean'
                 sh 'cd android ; ./gradlew lintFix'
+                sh 'rm -rf node_modules/.bin'
                 sh 'yarn cache clean'
             }
         }

@@ -7,6 +7,7 @@ pipeline {
             steps {
                 echo 'Cleaning...'
                 sh 'cd android ; ./gradlew clean'
+                sh 'cd android ; ./gradlew lintFix'
                 sh 'yarn cache clean'
             }
         }

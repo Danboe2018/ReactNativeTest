@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
 
 export default function UselessTextInput(){
   const [value, onChangeText] = React.useState('Useless Placeholder');
@@ -28,6 +28,7 @@ export default function UselessTextInput(){
           onChangeText={text => onChangeText(text)}
           />
 
+          <Button title="Click"></Button>
         </View>
     );
   }

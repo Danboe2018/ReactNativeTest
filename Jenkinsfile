@@ -46,7 +46,6 @@ pipeline {
                     sh 'watchman watch-del-all'
                     sh 'rm -rf node_modules' 
                     sh 'yarn install'
-                    sh 'yarn start --reset-cache'
                     sh 'rm -rf /tmp/metro-*'
                 }
             }

@@ -39,7 +39,7 @@ pipeline {
             }
         }
         stage('Stopping React Native'){
-            step {
+            steps {
                 wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
                     echo 'Stopping React Native..'
                     sh 'killall node'

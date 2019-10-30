@@ -38,18 +38,6 @@ pipeline {
                 }
             }
         }
-        stage('Stopping React Native'){
-            steps {
-                wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-                    echo 'Stopping React Native..'
-                    // sh 'killall node'
-                    sh 'watchman watch-del-all'
-                    sh 'rm -rf node_modules' 
-                    sh 'yarn install'
-                    sh 'rm -rf /tmp/metro-*'
-                }
-            }
-        }
         stage('Test') {
             steps {
                 echo 'Testing..'
